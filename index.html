@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إرث - منصة التراث السعودي</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-green: #006C35;
+            --gold:  #D4AF37;
+            --dark-brown: #4A3728;
+            --light-cream: #FDF8F0;
+            --sand: #E8DCC4;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing:  border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--light-cream);
+            color:  var(--dark-brown);
+            line-height: 1.8;
+        }
+
+        /* Navigation */
+        nav {
+            background:  linear-gradient(135deg, var(--primary-green), #004d27);
+            padding:  1rem 2rem;
+            position: fixed;
+            width:  100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content:  space-between;
+            align-items:  center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            color:  var(--gold);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color:  var(--white);
+            font-size: 0.9rem;
+            display: block;
+            font-weight: 300;
+        }
+
+        .nav-links {
+            display:  flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition:  color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-green), #004d27);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 6rem 2rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: var(--white);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            background: var(--gold);
+            color: var(--dark-brown);
+            padding: 1rem 3rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border:  none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Section Styles */
+        section {
+            padding:  5rem 2rem;
+            max-width: 1200px;
+            margin:  0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--dark-brown);
+            opacity: 0.7;
+            margin-bottom: 3rem;
+            font-size: 1.2rem;
+        }
+
+        /* How it Works */
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top:  3rem;
+        }
+
+        .step-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition:  transform 0.3s;
+            position: relative;
+        }
+
+        .step-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-green), #004d27);
+            color: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content:  center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin:  0 auto 1.5rem;
+        }
+
+        .step-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .step-card h3 {
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        /* Regions Section */
+        .regions-section {
+            background: linear-gradient(135deg, var(--sand), var(--light-cream));
+        }
+
+        .regions-grid {
+            display:  grid;
+            grid-template-columns:  repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .region-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .region-card:hover {
+            border-color: var(--gold);
+            transform: scale(1.05);
+        }
+
+        .region-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .region-card h4 {
+            color: var(--primary-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .region-card p {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Categories */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .category-card {
+            background:  linear-gradient(135deg, var(--primary-green), #004d27);
+            border-radius:  15px;
+            padding: 2rem 1rem;
+            text-align: center;
+            color: var(--white);
+            cursor:  pointer;
+            transition: all 0.3s;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 108, 53, 0.3);
+        }
+
+        .category-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* User Journey */
+        .journey-section {
+            background: var(--dark-brown);
+            color: var(--white);
+            padding: 5rem 2rem;
+        }
+
+        .journey-section .section-title {
+            color: var(--gold);
+        }
+
+        .journey-section .section-subtitle {
+            color: var(--sand);
+        }
+
+        .journey-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .journey-timeline::before {
+            content: '';
+            position: absolute;
+            right: 50%;
+            transform: translateX(50%);
+            width: 4px;
+            height: 100%;
+            background: var(--gold);
+        }
+
+        .journey-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .journey-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .journey-content {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            width: 45%;
+            backdrop-filter: blur(10px);
+        }
+
+        .journey-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content:  center;
+            font-size: 1.5rem;
+            margin:  0 1rem;
+            flex-shrink: 0;
+        }
+
+        /* Features */
+        .features-grid {
+            display:  grid;
+            grid-template-columns:  repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.08);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--gold), #c9a227);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size:  1.8rem;
+            flex-shrink: 0;
+        }
+
+        .feature-card h4 {
+            color: var(--primary-green);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Product Preview */
+        .product-preview {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            max-width: 400px;
+            margin: 2rem auto;
+        }
+
+        .product-image {
+            height: 250px;
+            background: linear-gradient(135deg, var(--sand), var(--light-cream));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size:  5rem;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-info h3 {
+            color: var(--dark-brown);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-meta {
+            display:  flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--sand);
+        }
+
+        .price {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color:  var(--primary-green);
+        }
+
+        .rating {
+            color:  var(--gold);
+        }
+
+        .add-to-cart {
+            width: 100%;
+            background: var(--primary-green);
+            color: var(--white);
+            padding: 1rem;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor:  pointer;
+            transition: background 0.3s;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        .add-to-cart:hover {
+            background:  #005a2c;
+        }
+
+        /* Artisan Section */
+        .artisan-card {
+            background:  var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            max-width: 500px;
+            margin: 2rem auto;
+        }
+
+        .artisan-header {
+            background: linear-gradient(135deg, var(--primary-green), #004d27);
+            padding: 2rem;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .artisan-avatar {
+            width:  100px;
+            height: 100px;
+            background: var(--gold);
+            border-radius:  50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            border: 4px solid var(--white);
+        }
+
+        .artisan-body {
+            padding:  1.5rem;
+        }
+
+        .artisan-stats {
+            display:  flex;
+            justify-content: space-around;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--sand);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight:  800;
+            color:  var(--primary-green);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        /* Gift Builder */
+        .gift-builder {
+            background: linear-gradient(135deg, var(--gold), #c9a227);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            color: var(--dark-brown);
+        }
+
+        .gift-builder h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .gift-steps {
+            display:  flex;
+            justify-content: center;
+            gap:  1rem;
+            flex-wrap:  wrap;
+            margin:  2rem 0;
+        }
+
+        .gift-step {
+            background: var(--white);
+            padding:  1rem 2rem;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background:  var(--dark-brown);
+            color: var(--white);
+            padding:  3rem 2rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: var(--sand);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top:  2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--gold);
+            color: var(--dark-brown);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size:  1.1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .journey-timeline::before {
+                right: 20px;
+            }
+
+            .journey-item,
+            .journey-item:nth-child(odd) {
+                flex-direction:  row;
+            }
+
+            .journey-content {
+                width: calc(100% - 80px);
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity:  0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform:  translateY(0);
+            }
+        }
+
+        .animate {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        /* Decorative Elements */
+        .decoration {
+            position:  absolute;
+            opacity: 0.1;
+            font-size: 15rem;
+            color: var(--gold);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                إرث
+                <span>تراثنا... هويتنا</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#how-it-works">كيف تعمل</a></li>
+                <li><a href="#regions">المناطق</a></li>
+                <li><a href="#categories">التصنيفات</a></li>
+                <li><a href="#artisans">الحرفيون</a></li>
+                <li><a href="#gifts">الهدايا</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>🇸🇦 إرث</h1>
+            <p>منصتك الأولى لاكتشاف واقتناء التراث السعودي الأصيل، مباشرة من أيدي الحرفيين إلى بابك</p>
+            <a href="#how-it-works" class="cta-button">اكتشف الآن ←</a>
+        </div>
+    </section>
+
+    <!-- How it Works -->
+    <section id="how-it-works">
+        <h2 class="section-title">كيف تعمل المنصة؟</h2>
+        <p class="section-subtitle">رحلة بسيطة من الاكتشاف إلى الاستلام</p>
+        
+        <div class="steps-container">
+            <div class="step-card">
+                <div class="step-number">١</div>
+                <div class="step-icon">🗺️</div>
+                <h3>اختر منطقتك</h3>
+                <p>استكشف تراث المناطق السعودية المختلفة من نجد إلى الحجاز وعسير والمنطقة الشرقية</p>
+            </div>
+            
+            <div class="step-card">
+                <div class="step-number">٢</div>
+                <div class="step-icon">🔍</div>
+                <h3>تصفح المنتجات</h3>
+                <p>اكتشف القطع التراثية الأصيلة من أزياء وأدوات قهوة وحرف يدوية وفنون</p>
+            </div>
+            
+            <div class="step-card">
+                <div class="step-number">٣</div>
+                <div class="step-icon">👨‍🎨</div>
+                <h3>تعرف على الحرفي</h3>
+                <p>كل قطعة لها قصة، تعرف على الحرفي الذي صنعها وشاهد رحلة الصنع</p>
+            </div>
+            
+            <div class="step-card">
+                <div class="step-number">٤</div>
+                <div class="step-icon">🎁</div>
+                <h3>أضف لمستك</h3>
+                <p>خصص هديتك بالنقش، التغليف الفاخر، ورسالة صوتية أو مرئية</p>
+            </div>
+            
+            <div class="step-card">
+                <div class="step-number">٥</div>
+                <div class="step-icon">📦</div>
+                <h3>تتبع طلبك</h3>
+                <p>شاهد رحلة صنع قطعتك من ورشة الحرفي حتى وصولها إليك</p>
+            </div>
+            
+            <div class="step-card">
+                <div class="step-number">٦</div>
+                <div class="step-icon">🚚</div>
+                <h3>استلم بفخر</h3>
+                <p>تغليف تراثي فاخر مع شهادة أصالة وبطاقة تعريفية بقصة القطعة</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Regions -->
+    <section id="regions" class="regions-section">
+        <h2 class="section-title">استكشف تراث المناطق</h2>
+        <p class="section-subtitle">كل منطقة لها تراثها وحكايتها الخاصة</p>
+        
+        <div class="regions-grid">
+            <div class="region-card">
+                <div class="icon">🏜️</div>
+                <h4>نجد</h4>
+                <p>قلب الجزيرة العربية</p>
+            </div>
+            <div class="region-card">
+                <div class="icon">🕋</div>
+                <h4>الحجاز</h4>
+                <p>أرض الحرمين</p>
+            </div>
+            <div class="region-card">
+                <div class="icon">🌴</div>
+                <h4>الشرقية</h4>
+                <p>واحة الخليج</p>
+            </div>
+            <div class="region-card">
+                <div class="icon">⛰️</div>
+                <h4>عسير</h4>
+                <p>جبال الجنوب</p>
+            </div>
+            <div class="region-card">
+                <div class="icon">🏔️</div>
+                <h4>الشمال</h4>
+                <p>بوابة الشمال</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section id="categories">
+        <h2 class="section-title">التصنيفات</h2>
+        <p class="section-subtitle">تنوع غني من المنتجات التراثية</p>
+        
+        <div class="categories-grid">
+            <div class="category-card">
+                <div class="icon">☕</div>
+                <h4>القهوة والضيافة</h4>
+            </div>
+            <div class="category-card">
+                <div class="icon">👘</div>
+                <h4>الأزياء التراثية</h4>
+            </div>
+            <div class="category-card">
+                <div class="icon">🏺</div>
+                <h4>الحرف اليدوية</h4>
+            </div>
+            <div class="category-card">
+                <div class="icon">🎨</div>
+                <h4>الفنون واللوحات</h4>
+            </div>
+            <div class="category-card">
+                <div class="icon">🪔</div>
+                <h4>العطور والبخور</h4>
+            </div>
+            <div class="category-card">
+                <div class="icon">📚</div>
+                <h4>الكتب والمخطوطات</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Journey -->
+    <section class="journey-section" id="journey">
+        <h2 class="section-title">رحلة المستخدم</h2>
+        <p class="section-subtitle">من لحظة الدخول حتى استلام الطلب</p>
+        
+        <div class="journey-timeline">
+            <div class="journey-item">
+                <div class="journey-content">
+                    <h4>🚪 الدخول للمنصة</h4>
+                    <p>شاشة ترحيب تعرض جمال التراث السعودي</p>
+                </div>
+                <div class="journey-icon">١</div>
+            </div>
+            
+            <div class="journey-item">
+                <div class="journey-content">
+                    <h4>🗺️ اختيار المنطقة</h4>
+                    <p>خريطة تفاعلية لاختيار منطقتك المفضلة</p>
+                </div>
+                <div class="journey-icon">٢</div>
+            </div>
+            
+            <div class="journey-item">
+                <div class="journey-content">
+                    <h4>🏠 الصفحة الرئيسية</h4>
+                    <p>محتوى مخصص بناءً على اهتماماتك</p>
+                </div>
+                <div class="journey-icon">٣</div>
+            </div>
+            
+            <div class="journey-item">
+                <div class="journey-content">
+                    <h4>📦 صفحة المنتج</h4>
+                    <p>صور 360°، قصة المنتج، معلومات الحرفي</p>
+                </div>
+                <div class="journey-icon">٤</div>
+            </div>
+            
+            <div class="journey-item">
+                <div class="journey-content">
+                    <h4>🛒 إتمام الشراء</h4>
+                    <p>خيارات التخصيص والتغليف والدفع</p>
+                </div>
+                <div class="journey-icon">٥</div>
+            </div>
+            
+            <div class="journey-item">
+                <div class="journey-content">
+                    <h4>📍 التتبع المباشر</h4>
+                    <p>شاهد قطعتك تُصنع وتُغلف وتُشحن</p>
+                </div>
+                <div class="journey-icon">٦</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Preview -->
+    <section>
+        <h2 class="section-title">معاينة المنتج</h2>
+        <p class="section-subtitle">تجربة تفاعلية غنية بالتفاصيل</p>
+        
+        <div class="product-preview">
+            <div class="product-image">☕</div>
+            <div class="product-info">
+                <h3>طقم دلال نحاسية</h3>
+                <p>صناعة يدوية من نجد - 3 قطع</p>
+                <div class="product-meta">
+                    <span class="price">850 ر.س</span>
+                    <span class="rating">⭐⭐⭐⭐⭐ (127)</span>
+                </div>
+            </div>
+            <button class="add-to-cart">🛒 أضف للسلة</button>
+        </div>
+    </section>
+
+    <!-- Artisan Section -->
+    <section id="artisans">
+        <h2 class="section-title">تعرف على الحرفيين</h2>
+        <p class="section-subtitle">القلب النابض للمنصة</p>
+        
+        <div class="artisan-card">
+            <div class="artisan-header">
+                <div class="artisan-avatar">👨‍🎨</div>
+                <h3>أبو سعود الحربي</h3>
+                <p>حرفي نحاسيات - الرياض</p>
+                <p>✅ حرفي موثق</p>
+            </div>
+            <div class="artisan-body">
+                <p>"ورثت هذه الحرفة من والدي رحمه الله، وهو ورثها من جدي. نحن الجيل الثالث في صناعة النحاسيات. كل قطعة أصنعها تحمل روح أجدادي..."</p>
+                <div class="artisan-stats">
+                    <div class="stat">
+                        <div class="stat-value">15</div>
+                        <div class="stat-label">سنة خبرة</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">1,200+</div>
+                        <div class="stat-label">قطعة مباعة</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">4.9</div>
+                        <div class="stat-label">تقييم</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gift Builder -->
+    <section id="gifts">
+        <h2 class="section-title">صمم هديتك التراثية</h2>
+        <p class="section-subtitle">أهدِ تراثك بلمسة شخصية</p>
+        
+        <div class="gift-builder">
+            <h3>🎁 باني الهدايا التفاعلي</h3>
+            <p>4 خطوات بسيطة لإنشاء هدية لا تُنسى</p>
+            
+            <div class="gift-steps">
+                <div class="gift-step">
+                    <span>🎯</span>
+                    <span>اختر المناسبة</span>
+                </div>
+                <div class="gift-step">
+                    <span>💰</span>
+                    <span>حدد الميزانية</span>
+                </div>
+                <div class="gift-step">
+                    <span>📦</span>
+                    <span>اختر المنتجات</span>
+                </div>
+                <div class="gift-step">
+                    <span>✨</span>
+                    <span>أضف لمستك</span>
+                </div>
+            </div>
+            
+            <a href="#" class="cta-button">ابدأ الآن</a>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section>
+        <h2 class="section-title">مميزات المنصة</h2>
+        <p class="section-subtitle">تجربة فريدة من نوعها</p>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🔄</div>
+                <div>
+                    <h4>عرض 360°</h4>
+                    <p>شاهد المنتج من جميع الزوايا قبل الشراء</p>
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <div>
+                    <h4>الواقع المعزز AR</h4>
+                    <p>شاهد كيف سيبدو المنتج في منزلك</p>
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🎬</div>
+                <div>
+                    <h4>فيديو الصنع</h4>
+                    <p>شاهد رحلة صنع كل قطعة بيد الحرفي</p>
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📍</div>
+                <div>
+                    <h4>تتبع مباشر</h4>
+                    <p>تابع طلبك من الورشة حتى بابك</p>
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🎙️</div>
+                <div>
+                    <h4>رسائل صوتية</h4>
+                    <p>أضف رسالة صوتية أو فيديو مع هديتك</p>
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📜</div>
+                <div>
+                    <h4>شهادة أصالة</h4>
+                    <p>كل قطعة تأتي مع شهادة أصالة مرقمة</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>إرث</h4>
+                <p>منصتك الأولى لاكتشاف واقتناء التراث السعودي الأصيل</p>
+                <div class="social-links">
+                    <a href="#">𝕏</a>
+                    <a href="#">📸</a>
+                    <a href="#">📘</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4>روابط سريعة</h4>
+                <ul>
+                    <li><a href="#">الرئيسية</a></li>
+                    <li><a href="#">المنتجات</a></li>
+                    <li><a href="#">الحرفيون</a></li>
+                    <li><a href="#">المناطق</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>خدمة العملاء</h4>
+                <ul>
+                    <li><a href="#">تواصل معنا</a></li>
+                    <li><a href="#">الأسئلة الشائعة</a></li>
+                    <li><a href="#">سياسة الإرجاع</a></li>
+                    <li><a href="#">الشحن والتوصيل</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>انضم لنا</h4>
+                <ul>
+                    <li><a href="#">كن حرفياً معنا</a></li>
+                    <li><a href="#">برنامج الشراكات</a></li>
+                    <li><a href="#">وظائف</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2025 إرث - جميع الحقوق محفوظة 🇸🇦</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block:  'start'
+                    });
+                }
+            });
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.step-card, .region-card, .category-card, .feature-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Interactive region cards
+        document.querySelectorAll('.region-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const region = this.querySelector('h4').textContent;
+                alert(`🗺️ مرحباً بك في تراث ${region}!\n\nهنا ستجد منتجات تراثية أصيلة من هذه المنطقة.`);
+            });
+        });
+
+        // Add to cart interaction
+        document.querySelector('.add-to-cart').addEventListener('click', function() {
+            this.textContent = '✓ تمت الإضافة! ';
+            this.style.background = '#D4AF37';
+            this.style.color = '#4A3728';
+            setTimeout(() => {
+                this.textContent = '🛒 أضف للسلة';
+                this.style.background = '';
+                this.style.color = '';
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
