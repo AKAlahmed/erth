@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الأفراد - منصة هدايا</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/fill/style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/duotone/style.css" />
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Page Header */
@@ -111,6 +114,33 @@
             justify-content: center;
             font-size: 2.5rem;
             transition: transform 0.3s;
+            overflow: hidden;
+        }
+
+        .family-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .family-icon i {
+            font-size: 2.5rem;
+            color: var(--gold);
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .occasion-card .occasion-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1rem;
+            border: 3px solid var(--gold);
         }
 
         .family-card:hover .family-icon {
@@ -197,6 +227,11 @@
             justify-content: center;
             font-size: 5rem;
             position: relative;
+        }
+
+        .product-image i {
+            color: var(--gold);
+            font-size: 5rem;
         }
 
         .product-badge {
@@ -415,7 +450,7 @@
     <header class="page-header">
         <div class="page-header-content">
             <a href="index.html" class="back-link">→ العودة للرئيسية</a>
-            <h1>👨‍👩‍👧‍👦 هدايا للأفراد</h1>
+            <h1><i class="ph-fill ph-users-three" style="vertical-align: middle;"></i> هدايا للأفراد</h1>
             <p>اختر الشخص المناسب واكتشف الهدية التراثية المثالية له</p>
         </div>
     </header>
@@ -423,67 +458,87 @@
     <!-- Gift Recipient Section -->
     <section class="recipient-section">
         <div class="recipient-question">
-            <h2>🎁 هدية ستهديها لمن؟</h2>
+            <h2><i class="ph-fill ph-gift"></i> هدية ستهديها لمن؟</h2>
             <p>اختر الشخص وسنساعدك في إيجاد الهدية المثالية</p>
         </div>
 
         <div class="family-grid">
             <div class="family-card" onclick="selectRecipient(this, 'أب')">
-                <div class="family-icon">👨</div>
+                <div class="family-icon">
+                    <i class="ph-fill ph-user"></i>
+                </div>
                 <h3>أب</h3>
                 <p>هدايا الوالد</p>
             </div>
 
             <div class="family-card" onclick="selectRecipient(this, 'أم')">
-                <div class="family-icon">👩</div>
+                <div class="family-icon">
+                    <i class="ph-fill ph-user-circle"></i>
+                </div>
                 <h3>أم</h3>
                 <p>هدايا الوالدة</p>
             </div>
 
             <div class="family-card" onclick="selectRecipient(this, 'جد')">
-                <div class="family-icon">👴</div>
+                <div class="family-icon">
+                    <i class="ph-fill ph-user-focus"></i>
+                </div>
                 <h3>جد</h3>
                 <p>هدايا الأجداد</p>
             </div>
 
             <div class="family-card" onclick="selectRecipient(this, 'جدة')">
-                <div class="family-icon">👵</div>
+                <div class="family-icon">
+                    <i class="ph-fill ph-user-circle-gear"></i>
+                </div>
                 <h3>جدة</h3>
                 <p>هدايا الجدات</p>
             </div>
 
             <div class="family-card" onclick="selectRecipient(this, 'أخ')">
-                <div class="family-icon">👦</div>
+                <div class="family-icon">
+                    <i class="ph-fill ph-user-plus"></i>
+                </div>
                 <h3>أخ</h3>
                 <p>هدايا الإخوة</p>
             </div>
 
             <div class="family-card" onclick="selectRecipient(this, 'أخت')">
-                <div class="family-icon">👧</div>
+                <div class="family-icon">
+                    <i class="ph-fill ph-user-minus"></i>
+                </div>
                 <h3>أخت</h3>
                 <p>هدايا الأخوات</p>
             </div>
 
             <div class="family-card" onclick="selectRecipient(this, 'زوج')">
-                <div class="family-icon">🤵</div>
+                <div class="family-icon">
+                    <i class="ph-fill ph-users"></i>
+                </div>
                 <h3>زوج</h3>
                 <p>هدايا الزوج</p>
             </div>
 
             <div class="family-card" onclick="selectRecipient(this, 'زوجة')">
-                <div class="family-icon">👰</div>
+                <div class="family-icon">
+                    <i class="ph-fill ph-users-three"></i>
+                </div>
                 <h3>زوجة</h3>
                 <p>هدايا الزوجة</p>
             </div>
 
             <div class="family-card" onclick="selectRecipient(this, 'صديق')">
-                <div class="family-icon">🤝</div>
+                <div class="family-icon">
+                    <i class="ph-fill ph-heart"></i>
+                </div>
                 <h3>صديق/ة</h3>
                 <p>هدايا الأصدقاء</p>
             </div>
 
             <div class="family-card" onclick="selectRecipient(this, 'زميل')">
-                <div class="family-icon">💼</div>
+                <div class="family-icon">
+                    <i class="ph-fill ph-briefcase"></i>
+                </div>
                 <h3>زميل عمل</h3>
                 <p>هدايا العمل</p>
             </div>
@@ -497,26 +552,26 @@
 
         <div class="categories-tabs">
             <button class="category-tab active" onclick="filterProducts('all')">
-                <span class="icon">🎁</span> الكل
+                <span class="icon"><i class="ph ph-gift"></i></span> الكل
             </button>
             <button class="category-tab" onclick="filterProducts('coffee')">
-                <span class="icon">☕</span> القهوة والضيافة
+                <span class="icon"><i class="ph ph-coffee"></i></span> القهوة والضيافة
             </button>
             <button class="category-tab" onclick="filterProducts('fashion')">
-                <span class="icon">👘</span> الأزياء
+                <span class="icon"><i class="ph ph-coat-hanger"></i></span> الأزياء
             </button>
             <button class="category-tab" onclick="filterProducts('crafts')">
-                <span class="icon">🏺</span> الحرف اليدوية
+                <span class="icon"><i class="ph ph-hand"></i></span> الحرف اليدوية
             </button>
             <button class="category-tab" onclick="filterProducts('fragrance')">
-                <span class="icon">🪔</span> العطور والبخور
+                <span class="icon"><i class="ph ph-flower-lotus"></i></span> العطور والبخور
             </button>
         </div>
 
         <div class="products-grid">
             <div class="product-card" data-category="coffee">
                 <div class="product-image">
-                    ☕
+                    <i class="ph-fill ph-coffee"></i>
                     <span class="product-badge">الأكثر مبيعاً</span>
                 </div>
                 <div class="product-info">
@@ -527,12 +582,12 @@
                         <span class="product-rating">⭐ 4.9 (127)</span>
                     </div>
                 </div>
-                <button class="add-btn">🛒 أضف للسلة</button>
+                <button class="add-btn"><i class="ph-fill ph-shopping-cart"></i> أضف للسلة</button>
             </div>
 
             <div class="product-card" data-category="fashion">
                 <div class="product-image">
-                    👘
+                    <i class="ph-fill ph-coat-hanger"></i>
                 </div>
                 <div class="product-info">
                     <h3>بشت رجالي فاخر</h3>
@@ -542,12 +597,12 @@
                         <span class="product-rating">⭐ 4.8 (89)</span>
                     </div>
                 </div>
-                <button class="add-btn">🛒 أضف للسلة</button>
+                <button class="add-btn"><i class="ph-fill ph-shopping-cart"></i> أضف للسلة</button>
             </div>
 
             <div class="product-card" data-category="crafts">
                 <div class="product-image">
-                    🏺
+                    <i class="ph-fill ph-hand"></i>
                 </div>
                 <div class="product-info">
                     <h3>فخارية تراثية</h3>
@@ -557,12 +612,12 @@
                         <span class="product-rating">⭐ 4.7 (56)</span>
                     </div>
                 </div>
-                <button class="add-btn">🛒 أضف للسلة</button>
+                <button class="add-btn"><i class="ph-fill ph-shopping-cart"></i> أضف للسلة</button>
             </div>
 
             <div class="product-card" data-category="fragrance">
                 <div class="product-image">
-                    🪔
+                    <i class="ph-fill ph-flower-lotus"></i>
                     <span class="product-badge">جديد</span>
                 </div>
                 <div class="product-info">
@@ -573,12 +628,12 @@
                         <span class="product-rating">⭐ 4.9 (203)</span>
                     </div>
                 </div>
-                <button class="add-btn">🛒 أضف للسلة</button>
+                <button class="add-btn"><i class="ph-fill ph-shopping-cart"></i> أضف للسلة</button>
             </div>
 
             <div class="product-card" data-category="coffee">
                 <div class="product-image">
-                    🫖
+                    <i class="ph-fill ph-coffee"></i>
                 </div>
                 <div class="product-info">
                     <h3>طقم شاي تراثي</h3>
@@ -588,12 +643,12 @@
                         <span class="product-rating">⭐ 4.6 (78)</span>
                     </div>
                 </div>
-                <button class="add-btn">🛒 أضف للسلة</button>
+                <button class="add-btn"><i class="ph-fill ph-shopping-cart"></i> أضف للسلة</button>
             </div>
 
             <div class="product-card" data-category="crafts">
                 <div class="product-image">
-                    🧶
+                    <i class="ph-fill ph-package"></i>
                 </div>
                 <div class="product-info">
                     <h3>سجادة سدو يدوية</h3>
@@ -603,49 +658,49 @@
                         <span class="product-rating">⭐ 5.0 (45)</span>
                     </div>
                 </div>
-                <button class="add-btn">🛒 أضف للسلة</button>
+                <button class="add-btn"><i class="ph-fill ph-shopping-cart"></i> أضف للسلة</button>
             </div>
         </div>
     </section>
 
     <!-- Occasions Section -->
     <section class="occasions-section">
-        <h2 class="section-title">🎉 هدايا حسب المناسبة</h2>
+        <h2 class="section-title"><i class="ph-fill ph-confetti"></i> هدايا حسب المناسبة</h2>
         <p class="section-subtitle">اختر المناسبة وسنقترح عليك أفضل الهدايا</p>
 
         <div class="occasions-grid">
             <div class="occasion-card">
-                <div class="icon">💍</div>
+                <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=150&auto=format&fit=crop&q=80" alt="زواج" class="occasion-img">
                 <h4>زواج</h4>
                 <p>هدايا الأفراح والمناسبات</p>
             </div>
 
             <div class="occasion-card">
-                <div class="icon">🎓</div>
+                <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=150&auto=format&fit=crop&q=80" alt="تخرج" class="occasion-img">
                 <h4>تخرج</h4>
                 <p>احتفاء بالإنجاز</p>
             </div>
 
             <div class="occasion-card">
-                <div class="icon">🏠</div>
+                <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=150&auto=format&fit=crop&q=80" alt="منزل جديد" class="occasion-img">
                 <h4>منزل جديد</h4>
                 <p>تهنئة بالبيت الجديد</p>
             </div>
 
             <div class="occasion-card">
-                <div class="icon">👶</div>
+                <img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=150&auto=format&fit=crop&q=80" alt="مولود" class="occasion-img">
                 <h4>مولود</h4>
                 <p>هدايا المواليد</p>
             </div>
 
             <div class="occasion-card">
-                <div class="icon">🌙</div>
+                <img src="https://images.unsplash.com/photo-1574682677115-7cc98a9f3e38?w=150&auto=format&fit=crop&q=80" alt="رمضان" class="occasion-img">
                 <h4>رمضان والعيد</h4>
                 <p>هدايا المناسبات الدينية</p>
             </div>
 
             <div class="occasion-card">
-                <div class="icon">🎂</div>
+                <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=150&auto=format&fit=crop&q=80" alt="عيد ميلاد" class="occasion-img">
                 <h4>عيد ميلاد</h4>
                 <p>احتفاء بيوم مميز</p>
             </div>
@@ -654,24 +709,24 @@
 
     <!-- Gift Builder CTA -->
     <section class="gift-builder-cta">
-        <h2>🎁 صمم هديتك بنفسك</h2>
+        <h2><i class="ph-fill ph-gift"></i> صمم هديتك بنفسك</h2>
         <p>باني الهدايا التفاعلي - 4 خطوات بسيطة لإنشاء هدية لا تُنسى</p>
 
         <div class="gift-steps-mini">
             <div class="gift-step-mini">
-                <span>🎯</span>
+                <span><i class="ph-fill ph-crosshair"></i></span>
                 <span>اختر المناسبة</span>
             </div>
             <div class="gift-step-mini">
-                <span>💰</span>
+                <span><i class="ph-fill ph-wallet"></i></span>
                 <span>حدد الميزانية</span>
             </div>
             <div class="gift-step-mini">
-                <span>📦</span>
+                <span><i class="ph-fill ph-package"></i></span>
                 <span>اختر المنتجات</span>
             </div>
             <div class="gift-step-mini">
-                <span>✨</span>
+                <span><i class="ph-fill ph-sparkle"></i></span>
                 <span>أضف لمستك</span>
             </div>
         </div>
@@ -686,9 +741,9 @@
                 <h4>منصة هدايا</h4>
                 <p>من أرض السعودية... هدية تراها بأيدي أبنائها</p>
                 <div class="social-links">
-                    <a href="#">𝕏</a>
-                    <a href="#">📸</a>
-                    <a href="#">📘</a>
+                    <a href="#"><i class="ph ph-x-logo"></i></a>
+                    <a href="#"><i class="ph ph-instagram-logo"></i></a>
+                    <a href="#"><i class="ph ph-facebook-logo"></i></a>
                 </div>
             </div>
             
@@ -713,7 +768,7 @@
         </div>
         
         <div class="footer-bottom">
-            <p>© 2026 منصة هدايا - جميع الحقوق محفوظة 🇸🇦</p>
+            <p>© 2026 منصة هدايا - جميع الحقوق محفوظة</p>
         </div>
     </footer>
 

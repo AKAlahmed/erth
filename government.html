@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الجهات الحكومية والخاصة - منصة هدايا</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/fill/style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/duotone/style.css" />
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Page Header */
@@ -134,7 +137,31 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
+            font-size: 2.5rem;
+            color: var(--gold);
+            overflow: hidden;
+        }
+
+        .service-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .region-feature .feature-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 0.5rem;
+            border: 2px solid var(--gold);
+        }
+
+        .royal-feature img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
         }
 
         .service-card h3 {
@@ -250,8 +277,9 @@
         }
 
         .region-feature .icon {
-            font-size: 2.5rem;
+            font-size: 2rem;
             margin-bottom: 0.5rem;
+            color: var(--gold);
         }
 
         .region-feature h4 {
@@ -355,14 +383,14 @@
     <header class="page-header">
         <div class="page-header-content">
             <a href="index.html" class="back-link">→ العودة للرئيسية</a>
-            <h1>🏛️ الجهات الحكومية والخاصة</h1>
+            <h1><i class="ph-fill ph-buildings" style="vertical-align: middle;"></i> الجهات الحكومية والخاصة</h1>
             <p>هدايا تليق بمكانتكم، مصممة بأيدي سعودية وروح تراثية أصيلة</p>
         </div>
     </header>
 
     <!-- Entity Selector -->
     <div class="entity-selector">
-        <h3>🏢 اختر جهتك لعرض طابع مخصص</h3>
+        <h3><i class="ph ph-building-office"></i> اختر جهتك لعرض طابع مخصص</h3>
         <div class="form-group">
             <div class="select-wrapper">
                 <select class="form-select" id="entitySelect" onchange="showEntityTheme()">
@@ -405,19 +433,25 @@
 
         <div class="services-grid">
             <div class="service-card">
-                <div class="service-icon">🛡️</div>
+                <div class="service-icon">
+                    <img src="https://images.unsplash.com/photo-1574682677115-7cc98a9f3e38?w=200&auto=format&fit=crop&q=80" alt="دروع تذكارية">
+                </div>
                 <h3>الدروع التاريخية</h3>
                 <p>دروع تكريمية مصنوعة يدوياً من مواد فاخرة، مستوحاة من التراث السعودي العريق مع إمكانية النقش والتخصيص</p>
             </div>
 
             <div class="service-card">
-                <div class="service-icon">📖</div>
+                <div class="service-icon">
+                    <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=200&auto=format&fit=crop&q=80" alt="قصص المناطق">
+                </div>
                 <h3>قصص المناطق</h3>
                 <p>هدايا تحكي قصة كل منطقة سعودية، من الحرف التقليدية إلى الفنون الشعبية، موثقة بشهادات أصالة</p>
             </div>
 
             <div class="service-card">
-                <div class="service-icon">🎨</div>
+                <div class="service-icon">
+                    <img src="https://images.unsplash.com/photo-1580637250481-b78db3e6f84b?w=200&auto=format&fit=crop&q=80" alt="تصميم خاص">
+                </div>
                 <h3>تصميم خاص بعقول سعودية</h3>
                 <p>فريق من المصممين والحرفيين السعوديين يبتكرون تصاميم حصرية تناسب هوية جهتكم ومناسباتكم</p>
             </div>
@@ -464,22 +498,22 @@
             <h3>🏜️ تراث نجد</h3>
             <div class="region-features">
                 <div class="region-feature">
-                    <div class="icon">🍚</div>
+                    <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=100&auto=format&fit=crop&q=80" alt="الأكل التقليدي" class="feature-img">
                     <h4>الأكل التقليدي</h4>
                     <p>الكبسة النجدية، الجريش، القرصان</p>
                 </div>
                 <div class="region-feature">
-                    <div class="icon">🪑</div>
+                    <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=100&auto=format&fit=crop&q=80" alt="تصميم السفرة" class="feature-img">
                     <h4>تصميم السفرة</h4>
                     <p>السفرة النجدية التقليدية بأوانٍ نحاسية</p>
                 </div>
                 <div class="region-feature">
-                    <div class="icon">🏠</div>
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=100&auto=format&fit=crop&q=80" alt="اللمسة العمرانية" class="feature-img">
                     <h4>اللمسة العمرانية</h4>
                     <p>طراز الدرعية التاريخي</p>
                 </div>
                 <div class="region-feature">
-                    <div class="icon">🎁</div>
+                    <img src="https://images.unsplash.com/photo-1609899212409-30e3b0c8e0b4?w=100&auto=format&fit=crop&q=80" alt="الهدية التذكارية" class="feature-img">
                     <h4>الهدية التذكارية</h4>
                     <p>دلال نحاسية، سيوف تقليدية</p>
                 </div>
@@ -490,22 +524,22 @@
             <h3>🕋 تراث الحجاز</h3>
             <div class="region-features">
                 <div class="region-feature">
-                    <div class="icon">🍚</div>
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=100&auto=format&fit=crop&q=80" alt="الأكل التقليدي" class="feature-img">
                     <h4>الأكل التقليدي</h4>
                     <p>المطبق، السليق، الفول الحجازي</p>
                 </div>
                 <div class="region-feature">
-                    <div class="icon">🪑</div>
+                    <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=100&auto=format&fit=crop&q=80" alt="تصميم السفرة" class="feature-img">
                     <h4>تصميم السفرة</h4>
                     <p>السفرة الحجازية بالأطباق الملونة</p>
                 </div>
                 <div class="region-feature">
-                    <div class="icon">🏠</div>
+                    <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=100&auto=format&fit=crop&q=80" alt="اللمسة العمرانية" class="feature-img">
                     <h4>اللمسة العمرانية</h4>
                     <p>الرواشين والمشربيات الحجازية</p>
                 </div>
                 <div class="region-feature">
-                    <div class="icon">🎁</div>
+                    <img src="https://images.unsplash.com/photo-1578774296842-c45e472b3028?w=100&auto=format&fit=crop&q=80" alt="الهدية التذكارية" class="feature-img">
                     <h4>الهدية التذكارية</h4>
                     <p>مباخر تراثية، سجاد يدوي</p>
                 </div>
@@ -516,22 +550,22 @@
             <h3>⛰️ تراث عسير</h3>
             <div class="region-features">
                 <div class="region-feature">
-                    <div class="icon">🍚</div>
+                    <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=100&auto=format&fit=crop&q=80" alt="الأكل التقليدي" class="feature-img">
                     <h4>الأكل التقليدي</h4>
                     <p>العريكة، الحنيذ، المعصوب</p>
                 </div>
                 <div class="region-feature">
-                    <div class="icon">🪑</div>
+                    <img src="https://images.unsplash.com/photo-1609501676725-7186d357032f?w=100&auto=format&fit=crop&q=80" alt="تصميم السفرة" class="feature-img">
                     <h4>تصميم السفرة</h4>
                     <p>السفرة العسيرية بألوان القط</p>
                 </div>
                 <div class="region-feature">
-                    <div class="icon">🏠</div>
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=100&auto=format&fit=crop&q=80" alt="اللمسة العمرانية" class="feature-img">
                     <h4>اللمسة العمرانية</h4>
                     <p>فن القط العسيري الملون</p>
                 </div>
                 <div class="region-feature">
-                    <div class="icon">🎁</div>
+                    <img src="https://images.unsplash.com/photo-1618666012174-83b441c0bc76?w=100&auto=format&fit=crop&q=80" alt="الهدية التذكارية" class="feature-img">
                     <h4>الهدية التذكارية</h4>
                     <p>جنابي تقليدية، قطع فنية</p>
                 </div>
@@ -542,22 +576,22 @@
             <h3>🌴 تراث الشرقية</h3>
             <div class="region-features">
                 <div class="region-feature">
-                    <div class="icon">🍚</div>
+                    <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=100&auto=format&fit=crop&q=80" alt="الأكل التقليدي" class="feature-img">
                     <h4>الأكل التقليدي</h4>
                     <p>المجبوس، الهريس، المحمر</p>
                 </div>
                 <div class="region-feature">
-                    <div class="icon">🪑</div>
+                    <img src="https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=100&auto=format&fit=crop&q=80" alt="تصميم السفرة" class="feature-img">
                     <h4>تصميم السفرة</h4>
                     <p>السفرة الخليجية بالتمور والقهوة</p>
                 </div>
                 <div class="region-feature">
-                    <div class="icon">🏠</div>
+                    <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=100&auto=format&fit=crop&q=80" alt="اللمسة العمرانية" class="feature-img">
                     <h4>اللمسة العمرانية</h4>
                     <p>طراز الأحساء التاريخي</p>
                 </div>
                 <div class="region-feature">
-                    <div class="icon">🎁</div>
+                    <img src="https://images.unsplash.com/photo-1600699537920-68132cffbc6c?w=100&auto=format&fit=crop&q=80" alt="الهدية التذكارية" class="feature-img">
                     <h4>الهدية التذكارية</h4>
                     <p>فخاريات، منسوجات سدو</p>
                 </div>
@@ -568,22 +602,22 @@
             <h3>🌊 تراث جازان</h3>
             <div class="region-features">
                 <div class="region-feature">
-                    <div class="icon">🍚</div>
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=100&auto=format&fit=crop&q=80" alt="الأكل التقليدي" class="feature-img">
                     <h4>الأكل التقليدي</h4>
                     <p>المغش، العصيدة، السمك الجازاني</p>
                 </div>
                 <div class="region-feature">
-                    <div class="icon">🪑</div>
+                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=100&auto=format&fit=crop&q=80" alt="تصميم السفرة" class="feature-img">
                     <h4>تصميم السفرة</h4>
                     <p>السفرة الجازانية بالخضرة</p>
                 </div>
                 <div class="region-feature">
-                    <div class="icon">🏠</div>
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=100&auto=format&fit=crop&q=80" alt="اللمسة العمرانية" class="feature-img">
                     <h4>اللمسة العمرانية</h4>
                     <p>العمارة الجبلية التقليدية</p>
                 </div>
                 <div class="region-feature">
-                    <div class="icon">🎁</div>
+                    <img src="https://images.unsplash.com/photo-1563453392212-326f5e854473?w=100&auto=format&fit=crop&q=80" alt="الهدية التذكارية" class="feature-img">
                     <h4>الهدية التذكارية</h4>
                     <p>قبعات تقليدية، حرف يدوية</p>
                 </div>
@@ -594,22 +628,22 @@
             <h3>🏔️ تراث تبوك</h3>
             <div class="region-features">
                 <div class="region-feature">
-                    <div class="icon">🍚</div>
+                    <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=100&auto=format&fit=crop&q=80" alt="الأكل التقليدي" class="feature-img">
                     <h4>الأكل التقليدي</h4>
                     <p>المنسف، الزرب، خبز التنور</p>
                 </div>
                 <div class="region-feature">
-                    <div class="icon">🪑</div>
+                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=100&auto=format&fit=crop&q=80" alt="تصميم السفرة" class="feature-img">
                     <h4>تصميم السفرة</h4>
                     <p>السفرة البدوية التقليدية</p>
                 </div>
                 <div class="region-feature">
-                    <div class="icon">🏠</div>
+                    <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=100&auto=format&fit=crop&q=80" alt="اللمسة العمرانية" class="feature-img">
                     <h4>اللمسة العمرانية</h4>
                     <p>طراز مدائن صالح النبطي</p>
                 </div>
                 <div class="region-feature">
-                    <div class="icon">🎁</div>
+                    <img src="https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?w=100&auto=format&fit=crop&q=80" alt="الهدية التذكارية" class="feature-img">
                     <h4>الهدية التذكارية</h4>
                     <p>بُسط صوفية، قطع نبطية</p>
                 </div>
@@ -619,24 +653,24 @@
 
     <!-- Royal Gifts Section -->
     <section class="royal-section">
-        <h2 class="section-title">👑 قسم الهدايا الملكية الخاصة</h2>
+        <h2 class="section-title"><i class="ph-fill ph-crown" style="vertical-align: middle;"></i> قسم الهدايا الملكية الخاصة</h2>
         <p class="section-subtitle">قطع استثنائية للمناسبات الرسمية والضيوف الكبار</p>
         
         <div class="royal-features">
             <div class="royal-feature">
-                <span class="icon">✨</span>
+                <span class="icon"><i class="ph-fill ph-sparkle"></i></span>
                 <span>قطع حصرية محدودة</span>
             </div>
             <div class="royal-feature">
-                <span class="icon">🎖️</span>
+                <span class="icon"><i class="ph-fill ph-medal"></i></span>
                 <span>تصاميم مخصصة</span>
             </div>
             <div class="royal-feature">
-                <span class="icon">📜</span>
+                <span class="icon"><i class="ph-fill ph-certificate"></i></span>
                 <span>شهادات أصالة موثقة</span>
             </div>
             <div class="royal-feature">
-                <span class="icon">🎀</span>
+                <span class="icon"><i class="ph-fill ph-gift"></i></span>
                 <span>تغليف فاخر</span>
             </div>
         </div>
@@ -660,9 +694,9 @@
                 <h4>منصة هدايا</h4>
                 <p>من أرض السعودية... هدية تراها بأيدي أبنائها</p>
                 <div class="social-links">
-                    <a href="#">𝕏</a>
-                    <a href="#">📸</a>
-                    <a href="#">📘</a>
+                    <a href="#"><i class="ph ph-x-logo"></i></a>
+                    <a href="#"><i class="ph ph-instagram-logo"></i></a>
+                    <a href="#"><i class="ph ph-facebook-logo"></i></a>
                 </div>
             </div>
             
@@ -686,7 +720,7 @@
         </div>
         
         <div class="footer-bottom">
-            <p>© 2026 منصة هدايا - جميع الحقوق محفوظة 🇸🇦</p>
+            <p>© 2026 منصة هدايا - جميع الحقوق محفوظة</p>
         </div>
     </footer>
 

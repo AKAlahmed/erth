@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>فكرة التطبيق - منصة هدايا</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css" />
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/fill/style.css" />
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/duotone/style.css" />
     <style>
         :root {
             --primary-green: #006C35;
@@ -210,6 +213,41 @@
         .step-icon {
             font-size: 3rem;
             margin-bottom: 1rem;
+        }
+
+        .step-icon img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--gold);
+        }
+
+        .category-card .icon img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .feature-icon img {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
+        .artisan-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .step-card h3 {
@@ -678,7 +716,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>🇸🇦 منصة هدايا</h1>
+            <h1>منصة هدايا</h1>
             <p>من أرض السعودية ... هدية تراها بأيدي أبنائها</p>
             <p style="font-size: 1.1rem; opacity: 0.9;">اكتشف فكرة المنصة ورحلة المستخدم</p>
             <a href="#how-it-works" class="cta-button">اكتشف الآن ←</a>
@@ -693,42 +731,54 @@
         <div class="steps-container">
             <div class="step-card">
                 <div class="step-number">١</div>
-                <div class="step-icon">🗺️</div>
+                <div class="step-icon">
+                    <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=150&auto=format&fit=crop&q=80" alt="خريطة">
+                </div>
                 <h3>اختر منطقتك</h3>
                 <p>استكشف تراث المناطق السعودية المختلفة من نجد إلى الحجاز وعسير والمنطقة الشرقية</p>
             </div>
             
             <div class="step-card">
                 <div class="step-number">٢</div>
-                <div class="step-icon">🔍</div>
+                <div class="step-icon">
+                    <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=150&auto=format&fit=crop&q=80" alt="تصفح">
+                </div>
                 <h3>تصفح المنتجات</h3>
                 <p>اكتشف القطع التراثية الأصيلة من أزياء وأدوات قهوة وحرف يدوية وفنون</p>
             </div>
             
             <div class="step-card">
                 <div class="step-number">٣</div>
-                <div class="step-icon">👨‍🎨</div>
+                <div class="step-icon">
+                    <img src="https://images.unsplash.com/photo-1580637250481-b78db3e6f84b?w=150&auto=format&fit=crop&q=80" alt="حرفي">
+                </div>
                 <h3>تعرف على الحرفي</h3>
                 <p>كل قطعة لها قصة، تعرف على الحرفي الذي صنعها وشاهد رحلة الصنع</p>
             </div>
             
             <div class="step-card">
                 <div class="step-number">٤</div>
-                <div class="step-icon">🎁</div>
+                <div class="step-icon">
+                    <img src="https://images.unsplash.com/photo-1609704295392-5012e6568e2b?w=150&auto=format&fit=crop&q=80" alt="هدية">
+                </div>
                 <h3>أضف لمستك</h3>
                 <p>خصص هديتك بالنقش، التغليف الفاخر، ورسالة صوتية أو مرئية</p>
             </div>
             
             <div class="step-card">
                 <div class="step-number">٥</div>
-                <div class="step-icon">📦</div>
+                <div class="step-icon">
+                    <img src="https://images.unsplash.com/photo-1606925797300-0b35e9d1794e?w=150&auto=format&fit=crop&q=80" alt="تتبع">
+                </div>
                 <h3>تتبع طلبك</h3>
                 <p>شاهد رحلة صنع قطعتك من ورشة الحرفي حتى وصولها إليك</p>
             </div>
             
             <div class="step-card">
                 <div class="step-number">٦</div>
-                <div class="step-icon">🚚</div>
+                <div class="step-icon">
+                    <img src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=150&auto=format&fit=crop&q=80" alt="توصيل">
+                </div>
                 <h3>استلم بفخر</h3>
                 <p>تغليف تراثي فاخر مع شهادة أصالة وبطاقة تعريفية بقصة القطعة</p>
             </div>
@@ -776,27 +826,39 @@
         
         <div class="categories-grid">
             <div class="category-card">
-                <div class="icon">☕</div>
+                <div class="icon">
+                    <img src="https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=100&auto=format&fit=crop&q=80" alt="قهوة">
+                </div>
                 <h4>القهوة والضيافة</h4>
             </div>
             <div class="category-card">
-                <div class="icon">👘</div>
+                <div class="icon">
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=100&auto=format&fit=crop&q=80" alt="أزياء">
+                </div>
                 <h4>الأزياء التراثية</h4>
             </div>
             <div class="category-card">
-                <div class="icon">🏺</div>
+                <div class="icon">
+                    <img src="https://images.unsplash.com/photo-1600699537920-68132cffbc6c?w=100&auto=format&fit=crop&q=80" alt="حرف يدوية">
+                </div>
                 <h4>الحرف اليدوية</h4>
             </div>
             <div class="category-card">
-                <div class="icon">🎨</div>
+                <div class="icon">
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=100&auto=format&fit=crop&q=80" alt="فنون">
+                </div>
                 <h4>الفنون واللوحات</h4>
             </div>
             <div class="category-card">
-                <div class="icon">🪔</div>
+                <div class="icon">
+                    <img src="https://images.unsplash.com/photo-1578774296842-c45e472b3028?w=100&auto=format&fit=crop&q=80" alt="عطور">
+                </div>
                 <h4>العطور والبخور</h4>
             </div>
             <div class="category-card">
-                <div class="icon">📚</div>
+                <div class="icon">
+                    <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=100&auto=format&fit=crop&q=80" alt="كتب">
+                </div>
                 <h4>الكتب والمخطوطات</h4>
             </div>
         </div>
@@ -810,7 +872,7 @@
         <div class="journey-timeline">
             <div class="journey-item">
                 <div class="journey-content">
-                    <h4>🚪 الدخول للمنصة</h4>
+                    <h4><i class="ph-fill ph-door-open"></i> الدخول للمنصة</h4>
                     <p>شاشة ترحيب تعرض جمال التراث السعودي</p>
                 </div>
                 <div class="journey-icon">١</div>
@@ -818,7 +880,7 @@
             
             <div class="journey-item">
                 <div class="journey-content">
-                    <h4>🗺️ اختيار المنطقة</h4>
+                    <h4><i class="ph-fill ph-map-trifold"></i> اختيار المنطقة</h4>
                     <p>خريطة تفاعلية لاختيار منطقتك المفضلة</p>
                 </div>
                 <div class="journey-icon">٢</div>
@@ -826,7 +888,7 @@
             
             <div class="journey-item">
                 <div class="journey-content">
-                    <h4>🏠 الصفحة الرئيسية</h4>
+                    <h4><i class="ph-fill ph-house"></i> الصفحة الرئيسية</h4>
                     <p>محتوى مخصص بناءً على اهتماماتك</p>
                 </div>
                 <div class="journey-icon">٣</div>
@@ -834,7 +896,7 @@
             
             <div class="journey-item">
                 <div class="journey-content">
-                    <h4>📦 صفحة المنتج</h4>
+                    <h4><i class="ph-fill ph-package"></i> صفحة المنتج</h4>
                     <p>صور 360°، قصة المنتج، معلومات الحرفي</p>
                 </div>
                 <div class="journey-icon">٤</div>
@@ -842,7 +904,7 @@
             
             <div class="journey-item">
                 <div class="journey-content">
-                    <h4>🛒 إتمام الشراء</h4>
+                    <h4><i class="ph-fill ph-shopping-cart"></i> إتمام الشراء</h4>
                     <p>خيارات التخصيص والتغليف والدفع</p>
                 </div>
                 <div class="journey-icon">٥</div>
@@ -850,7 +912,7 @@
             
             <div class="journey-item">
                 <div class="journey-content">
-                    <h4>📍 التتبع المباشر</h4>
+                    <h4><i class="ph-fill ph-map-pin"></i> التتبع المباشر</h4>
                     <p>شاهد قطعتك تُصنع وتُغلف وتُشحن</p>
                 </div>
                 <div class="journey-icon">٦</div>
@@ -864,16 +926,18 @@
         <p class="section-subtitle">تجربة تفاعلية غنية بالتفاصيل</p>
         
         <div class="product-preview">
-            <div class="product-image">☕</div>
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1609899212409-30e3b0c8e0b4?w=400&auto=format&fit=crop&q=80" alt="طقم دلال">
+            </div>
             <div class="product-info">
                 <h3>طقم دلال نحاسية</h3>
                 <p>صناعة يدوية من نجد - 3 قطع</p>
                 <div class="product-meta">
                     <span class="price">850 ر.س</span>
-                    <span class="rating">⭐⭐⭐⭐⭐ (127)</span>
+                    <span class="rating"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i> (127)</span>
                 </div>
             </div>
-            <button class="add-to-cart">🛒 أضف للسلة</button>
+            <button class="add-to-cart"><i class="ph-fill ph-shopping-cart"></i> أضف للسلة</button>
         </div>
     </section>
 
@@ -884,10 +948,12 @@
         
         <div class="artisan-card">
             <div class="artisan-header">
-                <div class="artisan-avatar">👨‍🎨</div>
+                <div class="artisan-avatar">
+                    <img src="https://images.pexels.com/photos/1040880/pexels-photo-1040880.jpeg?w=150&auto=compress&cs=tinysrgb" alt="حرفي">
+                </div>
                 <h3>أبو سعود الحربي</h3>
                 <p>حرفي نحاسيات - الرياض</p>
-                <p>✅ حرفي موثق</p>
+                <p><i class="ph-fill ph-seal-check"></i> حرفي موثق</p>
             </div>
             <div class="artisan-body">
                 <p>"ورثت هذه الحرفة من والدي رحمه الله، وهو ورثها من جدي. نحن الجيل الثالث في صناعة النحاسيات. كل قطعة أصنعها تحمل روح أجدادي..."</p>
@@ -915,24 +981,24 @@
         <p class="section-subtitle">أهدِ تراثك بلمسة شخصية</p>
         
         <div class="gift-builder">
-            <h3>🎁 باني الهدايا التفاعلي</h3>
+            <h3><i class="ph-fill ph-gift"></i> باني الهدايا التفاعلي</h3>
             <p>4 خطوات بسيطة لإنشاء هدية لا تُنسى</p>
             
             <div class="gift-steps">
                 <div class="gift-step">
-                    <span>🎯</span>
+                    <span><i class="ph-fill ph-crosshair"></i></span>
                     <span>اختر المناسبة</span>
                 </div>
                 <div class="gift-step">
-                    <span>💰</span>
+                    <span><i class="ph-fill ph-wallet"></i></span>
                     <span>حدد الميزانية</span>
                 </div>
                 <div class="gift-step">
-                    <span>📦</span>
+                    <span><i class="ph-fill ph-package"></i></span>
                     <span>اختر المنتجات</span>
                 </div>
                 <div class="gift-step">
-                    <span>✨</span>
+                    <span><i class="ph-fill ph-sparkle"></i></span>
                     <span>أضف لمستك</span>
                 </div>
             </div>
@@ -948,7 +1014,9 @@
         
         <div class="features-grid">
             <div class="feature-card">
-                <div class="feature-icon">🔄</div>
+                <div class="feature-icon">
+                    <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=100&auto=format&fit=crop&q=80" alt="360">
+                </div>
                 <div>
                     <h4>عرض 360°</h4>
                     <p>شاهد المنتج من جميع الزوايا قبل الشراء</p>
@@ -956,7 +1024,9 @@
             </div>
             
             <div class="feature-card">
-                <div class="feature-icon">📱</div>
+                <div class="feature-icon">
+                    <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?w=100&auto=format&fit=crop&q=80" alt="AR">
+                </div>
                 <div>
                     <h4>الواقع المعزز AR</h4>
                     <p>شاهد كيف سيبدو المنتج في منزلك</p>
@@ -964,7 +1034,9 @@
             </div>
             
             <div class="feature-card">
-                <div class="feature-icon">📍</div>
+                <div class="feature-icon">
+                    <img src="https://images.unsplash.com/photo-1606925797300-0b35e9d1794e?w=100&auto=format&fit=crop&q=80" alt="تتبع">
+                </div>
                 <div>
                     <h4>تتبع مباشر</h4>
                     <p>تابع طلبك من الورشة حتى بابك</p>
@@ -972,7 +1044,9 @@
             </div>
             
             <div class="feature-card">
-                <div class="feature-icon">🎙️</div>
+                <div class="feature-icon">
+                    <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=100&auto=format&fit=crop&q=80" alt="رسائل">
+                </div>
                 <div>
                     <h4>رسائل صوتية</h4>
                     <p>أضف رسالة صوتية أو فيديو مع هديتك</p>
@@ -980,7 +1054,9 @@
             </div>
             
             <div class="feature-card">
-                <div class="feature-icon">📜</div>
+                <div class="feature-icon">
+                    <img src="https://images.unsplash.com/photo-1574682677115-7cc98a9f3e38?w=100&auto=format&fit=crop&q=80" alt="شهادة">
+                </div>
                 <div>
                     <h4>شهادة أصالة</h4>
                     <p>كل قطعة تأتي مع شهادة أصالة مرقمة</p>
@@ -996,9 +1072,9 @@
                 <h4>منصة هدايا</h4>
                 <p>من أرض السعودية... هدية تراها بأيدي أبنائها</p>
                 <div class="social-links">
-                    <a href="#">𝕏</a>
-                    <a href="#">📸</a>
-                    <a href="#">📘</a>
+                    <a href="#"><i class="ph ph-x-logo"></i></a>
+                    <a href="#"><i class="ph ph-instagram-logo"></i></a>
+                    <a href="#"><i class="ph ph-facebook-logo"></i></a>
                 </div>
             </div>
             
@@ -1033,7 +1109,7 @@
         </div>
         
         <div class="footer-bottom">
-            <p>© 2026 منصة هدايا - جميع الحقوق محفوظة 🇸🇦</p>
+            <p>© 2026 منصة هدايا - جميع الحقوق محفوظة</p>
         </div>
     </footer>
 
@@ -1084,11 +1160,11 @@
 
         // Add to cart interaction
         document.querySelector('.add-to-cart').addEventListener('click', function() {
-            this.textContent = '✓ تمت الإضافة! ';
+            this.innerHTML = '<i class="ph-fill ph-check"></i> تمت الإضافة!';
             this.style.background = '#D4AF37';
             this.style.color = '#4A3728';
             setTimeout(() => {
-                this.textContent = '🛒 أضف للسلة';
+                this.innerHTML = '<i class="ph-fill ph-shopping-cart"></i> أضف للسلة';
                 this.style.background = '';
                 this.style.color = '';
             }, 2000);
