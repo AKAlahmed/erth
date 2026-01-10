@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأفراد - منصة هدايا</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-green), var(--primary-green-dark));
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .page-header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.3rem;
+            color: var(--white);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Gift Recipient Section */
+        .recipient-section {
+            padding: 5rem 2rem;
+            background: var(--white);
+        }
+
+        .recipient-question {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .recipient-question h2 {
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .recipient-question p {
+            color: var(--dark-brown);
+            opacity: 0.7;
+            font-size: 1.2rem;
+        }
+
+        /* Family Grid */
+        .family-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .family-card {
+            background: var(--light-cream);
+            border-radius: 20px;
+            padding: 2rem 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+            text-decoration: none;
+        }
+
+        .family-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            background: var(--white);
+        }
+
+        .family-card.active {
+            border-color: var(--primary-green);
+            background: var(--white);
+        }
+
+        .family-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1rem;
+            background: linear-gradient(135deg, var(--primary-green), var(--primary-green-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            transition: transform 0.3s;
+        }
+
+        .family-card:hover .family-icon {
+            transform: scale(1.1);
+        }
+
+        .family-card h3 {
+            color: var(--dark-brown);
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .family-card p {
+            color: var(--dark-brown);
+            opacity: 0.6;
+            font-size: 0.9rem;
+        }
+
+        /* Categories Section */
+        .categories-section {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--sand), var(--light-cream));
+        }
+
+        .categories-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .category-tab {
+            padding: 1rem 2rem;
+            background: var(--white);
+            border: 2px solid transparent;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--dark-brown);
+        }
+
+        .category-tab:hover,
+        .category-tab.active {
+            border-color: var(--gold);
+            background: var(--gold);
+            color: var(--dark-brown);
+        }
+
+        .category-tab .icon {
+            margin-left: 0.5rem;
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--sand), var(--light-cream));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            position: relative;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--gold);
+            color: var(--dark-brown);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-info h3 {
+            color: var(--dark-brown);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .product-info .region {
+            color: var(--primary-green);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--sand);
+        }
+
+        .product-price {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary-green);
+        }
+
+        .product-rating {
+            color: var(--gold);
+            font-size: 0.9rem;
+        }
+
+        .add-btn {
+            width: 100%;
+            background: var(--primary-green);
+            color: var(--white);
+            padding: 1rem;
+            border: none;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        .add-btn:hover {
+            background: var(--primary-green-dark);
+        }
+
+        /* Occasions Section */
+        .occasions-section {
+            padding: 5rem 2rem;
+            background: var(--dark-brown);
+            color: var(--white);
+        }
+
+        .occasions-section .section-title {
+            color: var(--gold);
+        }
+
+        .occasions-section .section-subtitle {
+            color: var(--sand);
+        }
+
+        .occasions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .occasion-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .occasion-card:hover {
+            background: rgba(212, 175, 55, 0.2);
+            border-color: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        .occasion-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .occasion-card h4 {
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .occasion-card p {
+            color: var(--sand);
+            font-size: 0.9rem;
+        }
+
+        /* Gift Builder CTA */
+        .gift-builder-cta {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .gift-builder-cta h2 {
+            color: var(--dark-brown);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .gift-builder-cta p {
+            color: var(--dark-brown);
+            opacity: 0.8;
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+        }
+
+        .gift-steps-mini {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .gift-step-mini {
+            background: var(--white);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            color: var(--dark-brown);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .recipient-question h2 {
+                font-size: 1.8rem;
+            }
+
+            .family-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .family-card {
+                padding: 1.5rem 0.5rem;
+            }
+
+            .family-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+            }
+
+            .family-card h3 {
+                font-size: 1rem;
+            }
+
+            .categories-tabs {
+                gap: 0.5rem;
+            }
+
+            .category-tab {
+                padding: 0.8rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                منصة هدايا
+                <span>من أرض السعودية</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="idea.html">فكرة التطبيق</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="page-header-content">
+            <a href="index.html" class="back-link">→ العودة للرئيسية</a>
+            <h1>👨‍👩‍👧‍👦 هدايا للأفراد</h1>
+            <p>اختر الشخص المناسب واكتشف الهدية التراثية المثالية له</p>
+        </div>
+    </header>
+
+    <!-- Gift Recipient Section -->
+    <section class="recipient-section">
+        <div class="recipient-question">
+            <h2>🎁 هدية ستهديها لمن؟</h2>
+            <p>اختر الشخص وسنساعدك في إيجاد الهدية المثالية</p>
+        </div>
+
+        <div class="family-grid">
+            <div class="family-card" onclick="selectRecipient(this, 'أب')">
+                <div class="family-icon">👨</div>
+                <h3>أب</h3>
+                <p>هدايا الوالد</p>
+            </div>
+
+            <div class="family-card" onclick="selectRecipient(this, 'أم')">
+                <div class="family-icon">👩</div>
+                <h3>أم</h3>
+                <p>هدايا الوالدة</p>
+            </div>
+
+            <div class="family-card" onclick="selectRecipient(this, 'جد')">
+                <div class="family-icon">👴</div>
+                <h3>جد</h3>
+                <p>هدايا الأجداد</p>
+            </div>
+
+            <div class="family-card" onclick="selectRecipient(this, 'جدة')">
+                <div class="family-icon">👵</div>
+                <h3>جدة</h3>
+                <p>هدايا الجدات</p>
+            </div>
+
+            <div class="family-card" onclick="selectRecipient(this, 'أخ')">
+                <div class="family-icon">👦</div>
+                <h3>أخ</h3>
+                <p>هدايا الإخوة</p>
+            </div>
+
+            <div class="family-card" onclick="selectRecipient(this, 'أخت')">
+                <div class="family-icon">👧</div>
+                <h3>أخت</h3>
+                <p>هدايا الأخوات</p>
+            </div>
+
+            <div class="family-card" onclick="selectRecipient(this, 'زوج')">
+                <div class="family-icon">🤵</div>
+                <h3>زوج</h3>
+                <p>هدايا الزوج</p>
+            </div>
+
+            <div class="family-card" onclick="selectRecipient(this, 'زوجة')">
+                <div class="family-icon">👰</div>
+                <h3>زوجة</h3>
+                <p>هدايا الزوجة</p>
+            </div>
+
+            <div class="family-card" onclick="selectRecipient(this, 'صديق')">
+                <div class="family-icon">🤝</div>
+                <h3>صديق/ة</h3>
+                <p>هدايا الأصدقاء</p>
+            </div>
+
+            <div class="family-card" onclick="selectRecipient(this, 'زميل')">
+                <div class="family-icon">💼</div>
+                <h3>زميل عمل</h3>
+                <p>هدايا العمل</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories-section">
+        <h2 class="section-title">تصفح الهدايا حسب التصنيف</h2>
+        <p class="section-subtitle">تنوع غني من المنتجات التراثية السعودية</p>
+
+        <div class="categories-tabs">
+            <button class="category-tab active" onclick="filterProducts('all')">
+                <span class="icon">🎁</span> الكل
+            </button>
+            <button class="category-tab" onclick="filterProducts('coffee')">
+                <span class="icon">☕</span> القهوة والضيافة
+            </button>
+            <button class="category-tab" onclick="filterProducts('fashion')">
+                <span class="icon">👘</span> الأزياء
+            </button>
+            <button class="category-tab" onclick="filterProducts('crafts')">
+                <span class="icon">🏺</span> الحرف اليدوية
+            </button>
+            <button class="category-tab" onclick="filterProducts('fragrance')">
+                <span class="icon">🪔</span> العطور والبخور
+            </button>
+        </div>
+
+        <div class="products-grid">
+            <div class="product-card" data-category="coffee">
+                <div class="product-image">
+                    ☕
+                    <span class="product-badge">الأكثر مبيعاً</span>
+                </div>
+                <div class="product-info">
+                    <h3>طقم دلال نحاسية</h3>
+                    <p class="region">📍 صناعة يدوية من نجد</p>
+                    <div class="product-meta">
+                        <span class="product-price">850 ر.س</span>
+                        <span class="product-rating">⭐ 4.9 (127)</span>
+                    </div>
+                </div>
+                <button class="add-btn">🛒 أضف للسلة</button>
+            </div>
+
+            <div class="product-card" data-category="fashion">
+                <div class="product-image">
+                    👘
+                </div>
+                <div class="product-info">
+                    <h3>بشت رجالي فاخر</h3>
+                    <p class="region">📍 من الأحساء</p>
+                    <div class="product-meta">
+                        <span class="product-price">1,200 ر.س</span>
+                        <span class="product-rating">⭐ 4.8 (89)</span>
+                    </div>
+                </div>
+                <button class="add-btn">🛒 أضف للسلة</button>
+            </div>
+
+            <div class="product-card" data-category="crafts">
+                <div class="product-image">
+                    🏺
+                </div>
+                <div class="product-info">
+                    <h3>فخارية تراثية</h3>
+                    <p class="region">📍 من منطقة عسير</p>
+                    <div class="product-meta">
+                        <span class="product-price">320 ر.س</span>
+                        <span class="product-rating">⭐ 4.7 (56)</span>
+                    </div>
+                </div>
+                <button class="add-btn">🛒 أضف للسلة</button>
+            </div>
+
+            <div class="product-card" data-category="fragrance">
+                <div class="product-image">
+                    🪔
+                    <span class="product-badge">جديد</span>
+                </div>
+                <div class="product-info">
+                    <h3>طقم بخور ودهن عود</h3>
+                    <p class="region">📍 من الشرقية</p>
+                    <div class="product-meta">
+                        <span class="product-price">650 ر.س</span>
+                        <span class="product-rating">⭐ 4.9 (203)</span>
+                    </div>
+                </div>
+                <button class="add-btn">🛒 أضف للسلة</button>
+            </div>
+
+            <div class="product-card" data-category="coffee">
+                <div class="product-image">
+                    🫖
+                </div>
+                <div class="product-info">
+                    <h3>طقم شاي تراثي</h3>
+                    <p class="region">📍 من الحجاز</p>
+                    <div class="product-meta">
+                        <span class="product-price">480 ر.س</span>
+                        <span class="product-rating">⭐ 4.6 (78)</span>
+                    </div>
+                </div>
+                <button class="add-btn">🛒 أضف للسلة</button>
+            </div>
+
+            <div class="product-card" data-category="crafts">
+                <div class="product-image">
+                    🧶
+                </div>
+                <div class="product-info">
+                    <h3>سجادة سدو يدوية</h3>
+                    <p class="region">📍 من البادية</p>
+                    <div class="product-meta">
+                        <span class="product-price">1,500 ر.س</span>
+                        <span class="product-rating">⭐ 5.0 (45)</span>
+                    </div>
+                </div>
+                <button class="add-btn">🛒 أضف للسلة</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Occasions Section -->
+    <section class="occasions-section">
+        <h2 class="section-title">🎉 هدايا حسب المناسبة</h2>
+        <p class="section-subtitle">اختر المناسبة وسنقترح عليك أفضل الهدايا</p>
+
+        <div class="occasions-grid">
+            <div class="occasion-card">
+                <div class="icon">💍</div>
+                <h4>زواج</h4>
+                <p>هدايا الأفراح والمناسبات</p>
+            </div>
+
+            <div class="occasion-card">
+                <div class="icon">🎓</div>
+                <h4>تخرج</h4>
+                <p>احتفاء بالإنجاز</p>
+            </div>
+
+            <div class="occasion-card">
+                <div class="icon">🏠</div>
+                <h4>منزل جديد</h4>
+                <p>تهنئة بالبيت الجديد</p>
+            </div>
+
+            <div class="occasion-card">
+                <div class="icon">👶</div>
+                <h4>مولود</h4>
+                <p>هدايا المواليد</p>
+            </div>
+
+            <div class="occasion-card">
+                <div class="icon">🌙</div>
+                <h4>رمضان والعيد</h4>
+                <p>هدايا المناسبات الدينية</p>
+            </div>
+
+            <div class="occasion-card">
+                <div class="icon">🎂</div>
+                <h4>عيد ميلاد</h4>
+                <p>احتفاء بيوم مميز</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gift Builder CTA -->
+    <section class="gift-builder-cta">
+        <h2>🎁 صمم هديتك بنفسك</h2>
+        <p>باني الهدايا التفاعلي - 4 خطوات بسيطة لإنشاء هدية لا تُنسى</p>
+
+        <div class="gift-steps-mini">
+            <div class="gift-step-mini">
+                <span>🎯</span>
+                <span>اختر المناسبة</span>
+            </div>
+            <div class="gift-step-mini">
+                <span>💰</span>
+                <span>حدد الميزانية</span>
+            </div>
+            <div class="gift-step-mini">
+                <span>📦</span>
+                <span>اختر المنتجات</span>
+            </div>
+            <div class="gift-step-mini">
+                <span>✨</span>
+                <span>أضف لمستك</span>
+            </div>
+        </div>
+
+        <a href="#" class="btn btn-secondary">ابدأ الآن</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>منصة هدايا</h4>
+                <p>من أرض السعودية... هدية تراها بأيدي أبنائها</p>
+                <div class="social-links">
+                    <a href="#">𝕏</a>
+                    <a href="#">📸</a>
+                    <a href="#">📘</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4>روابط سريعة</h4>
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="government.html">الجهات</a></li>
+                    <li><a href="individuals.html">الأفراد</a></li>
+                    <li><a href="idea.html">فكرة التطبيق</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>خدمة العملاء</h4>
+                <ul>
+                    <li><a href="#">تواصل معنا</a></li>
+                    <li><a href="#">الأسئلة الشائعة</a></li>
+                    <li><a href="#">سياسة الإرجاع</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2026 منصة هدايا - جميع الحقوق محفوظة 🇸🇦</p>
+        </div>
+    </footer>
+
+    <script>
+        // Select Recipient
+        function selectRecipient(element, name) {
+            // Remove active from all
+            document.querySelectorAll('.family-card').forEach(card => card.classList.remove('active'));
+            // Add active to selected
+            element.classList.add('active');
+            // Scroll to products
+            document.querySelector('.categories-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Filter Products
+        function filterProducts(category) {
+            // Update tabs
+            document.querySelectorAll('.category-tab').forEach(tab => tab.classList.remove('active'));
+            event.target.closest('.category-tab').classList.add('active');
+
+            // Filter products
+            document.querySelectorAll('.product-card').forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                    card.style.animation = 'fadeInUp 0.5s ease';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Add to cart animation
+        document.querySelectorAll('.add-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.textContent = '✓ تمت الإضافة!';
+                this.style.background = '#D4AF37';
+                this.style.color = '#4A3728';
+                setTimeout(() => {
+                    this.textContent = '🛒 أضف للسلة';
+                    this.style.background = '';
+                    this.style.color = '';
+                }, 2000);
+            });
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.family-card, .product-card, .occasion-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

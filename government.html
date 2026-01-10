@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الجهات الحكومية والخاصة - منصة هدايا</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-green), var(--primary-green-dark));
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .page-header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.3rem;
+            color: var(--white);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Entity Selector Section */
+        .entity-selector {
+            background: var(--white);
+            padding: 3rem 2rem;
+            margin-top: -2rem;
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .entity-selector h3 {
+            text-align: center;
+            color: var(--primary-green);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .entity-preview {
+            display: none;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--light-cream), var(--sand));
+            border-radius: 15px;
+            text-align: center;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .entity-preview.active {
+            display: block;
+        }
+
+        .entity-theme {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .entity-preview h4 {
+            color: var(--primary-green);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .entity-preview p {
+            color: var(--dark-brown);
+            opacity: 0.8;
+        }
+
+        /* Services Grid */
+        .services-section {
+            padding: 5rem 2rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--primary-green), var(--primary-green-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .service-card h3 {
+            color: var(--primary-green);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--dark-brown);
+            opacity: 0.8;
+            line-height: 1.8;
+        }
+
+        /* Spirit of Place Section */
+        .spirit-section {
+            background: linear-gradient(135deg, var(--dark-brown), #3a2a1e);
+            padding: 5rem 2rem;
+            color: var(--white);
+        }
+
+        .spirit-section .section-title {
+            color: var(--gold);
+        }
+
+        .spirit-section .section-subtitle {
+            color: var(--sand);
+        }
+
+        .spirit-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .spirit-header .english-title {
+            font-size: 1rem;
+            color: var(--gold);
+            opacity: 0.8;
+            letter-spacing: 3px;
+            margin-bottom: 0.5rem;
+        }
+
+        .regions-selector {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            max-width: 900px;
+            margin: 0 auto 3rem;
+        }
+
+        .region-btn {
+            background: rgba(255,255,255,0.1);
+            border: 2px solid transparent;
+            padding: 1.5rem 1rem;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+            color: var(--white);
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        .region-btn:hover,
+        .region-btn.active {
+            background: rgba(212, 175, 55, 0.2);
+            border-color: var(--gold);
+        }
+
+        .region-btn .icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .region-btn span {
+            font-weight: 600;
+        }
+
+        /* Region Content */
+        .region-content {
+            display: none;
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            backdrop-filter: blur(10px);
+        }
+
+        .region-content.active {
+            display: block;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .region-content h3 {
+            color: var(--gold);
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .region-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .region-feature {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .region-feature .icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .region-feature h4 {
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .region-feature p {
+            color: var(--sand);
+            font-size: 0.9rem;
+        }
+
+        /* Royal Gifts Section */
+        .royal-section {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .royal-section .section-title {
+            color: var(--dark-brown);
+        }
+
+        .royal-section .section-subtitle {
+            color: var(--dark-brown);
+            opacity: 0.8;
+        }
+
+        .royal-features {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .royal-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+            color: var(--dark-brown);
+            font-weight: 600;
+        }
+
+        .royal-feature .icon {
+            font-size: 1.5rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--primary-green);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            color: var(--gold);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: var(--white);
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .regions-selector {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                منصة هدايا
+                <span>من أرض السعودية</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="idea.html">فكرة التطبيق</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="page-header-content">
+            <a href="index.html" class="back-link">→ العودة للرئيسية</a>
+            <h1>🏛️ الجهات الحكومية والخاصة</h1>
+            <p>هدايا تليق بمكانتكم، مصممة بأيدي سعودية وروح تراثية أصيلة</p>
+        </div>
+    </header>
+
+    <!-- Entity Selector -->
+    <div class="entity-selector">
+        <h3>🏢 اختر جهتك لعرض طابع مخصص</h3>
+        <div class="form-group">
+            <div class="select-wrapper">
+                <select class="form-select" id="entitySelect" onchange="showEntityTheme()">
+                    <option value="">-- اختر الجهة --</option>
+                    <optgroup label="الوزارات">
+                        <option value="agriculture">وزارة البيئة والمياه والزراعة</option>
+                        <option value="culture">وزارة الثقافة</option>
+                        <option value="tourism">وزارة السياحة</option>
+                        <option value="education">وزارة التعليم</option>
+                        <option value="health">وزارة الصحة</option>
+                        <option value="commerce">وزارة التجارة</option>
+                    </optgroup>
+                    <optgroup label="الهيئات">
+                        <option value="heritage">هيئة التراث</option>
+                        <option value="entertainment">هيئة الترفيه</option>
+                        <option value="sports">هيئة الرياضة</option>
+                    </optgroup>
+                    <optgroup label="القطاع الخاص">
+                        <option value="aramco">أرامكو السعودية</option>
+                        <option value="sabic">سابك</option>
+                        <option value="stc">الاتصالات السعودية</option>
+                        <option value="bank">البنوك والمصارف</option>
+                    </optgroup>
+                </select>
+            </div>
+        </div>
+
+        <!-- Entity Theme Preview -->
+        <div class="entity-preview" id="entityPreview">
+            <div class="entity-theme" id="entityIcon">🌿</div>
+            <h4 id="entityName">وزارة البيئة والمياه والزراعة</h4>
+            <p id="entityDesc">طابع طبيعي يعكس الاستدامة والخضرة</p>
+        </div>
+    </div>
+
+    <!-- Main Services -->
+    <section class="services-section">
+        <h2 class="section-title">خدماتنا للجهات</h2>
+        <p class="section-subtitle">حلول متكاملة تجمع بين الأصالة والاحترافية</p>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🛡️</div>
+                <h3>الدروع التاريخية</h3>
+                <p>دروع تكريمية مصنوعة يدوياً من مواد فاخرة، مستوحاة من التراث السعودي العريق مع إمكانية النقش والتخصيص</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📖</div>
+                <h3>قصص المناطق</h3>
+                <p>هدايا تحكي قصة كل منطقة سعودية، من الحرف التقليدية إلى الفنون الشعبية، موثقة بشهادات أصالة</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🎨</div>
+                <h3>تصميم خاص بعقول سعودية</h3>
+                <p>فريق من المصممين والحرفيين السعوديين يبتكرون تصاميم حصرية تناسب هوية جهتكم ومناسباتكم</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Spirit of Place Section -->
+    <section class="spirit-section">
+        <div class="spirit-header">
+            <p class="english-title">SPIRIT OF PLACE</p>
+            <h2 class="section-title">روح المكان</h2>
+            <p class="section-subtitle">اختر المنطقة... ودعنا ننقل هويتها كاملة إلى مناسبتك</p>
+        </div>
+
+        <div class="regions-selector">
+            <button class="region-btn" data-region="najd" onclick="showRegion('najd')">
+                <span class="icon">🏜️</span>
+                <span>نجد</span>
+            </button>
+            <button class="region-btn" data-region="hijaz" onclick="showRegion('hijaz')">
+                <span class="icon">🕋</span>
+                <span>الحجاز</span>
+            </button>
+            <button class="region-btn" data-region="asir" onclick="showRegion('asir')">
+                <span class="icon">⛰️</span>
+                <span>عسير</span>
+            </button>
+            <button class="region-btn" data-region="eastern" onclick="showRegion('eastern')">
+                <span class="icon">🌴</span>
+                <span>الشرقية</span>
+            </button>
+            <button class="region-btn" data-region="jazan" onclick="showRegion('jazan')">
+                <span class="icon">🌊</span>
+                <span>جازان</span>
+            </button>
+            <button class="region-btn" data-region="tabuk" onclick="showRegion('tabuk')">
+                <span class="icon">🏔️</span>
+                <span>تبوك</span>
+            </button>
+        </div>
+
+        <!-- Region Contents -->
+        <div class="region-content" id="najd">
+            <h3>🏜️ تراث نجد</h3>
+            <div class="region-features">
+                <div class="region-feature">
+                    <div class="icon">🍚</div>
+                    <h4>الأكل التقليدي</h4>
+                    <p>الكبسة النجدية، الجريش، القرصان</p>
+                </div>
+                <div class="region-feature">
+                    <div class="icon">🪑</div>
+                    <h4>تصميم السفرة</h4>
+                    <p>السفرة النجدية التقليدية بأوانٍ نحاسية</p>
+                </div>
+                <div class="region-feature">
+                    <div class="icon">🏠</div>
+                    <h4>اللمسة العمرانية</h4>
+                    <p>طراز الدرعية التاريخي</p>
+                </div>
+                <div class="region-feature">
+                    <div class="icon">🎁</div>
+                    <h4>الهدية التذكارية</h4>
+                    <p>دلال نحاسية، سيوف تقليدية</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="region-content" id="hijaz">
+            <h3>🕋 تراث الحجاز</h3>
+            <div class="region-features">
+                <div class="region-feature">
+                    <div class="icon">🍚</div>
+                    <h4>الأكل التقليدي</h4>
+                    <p>المطبق، السليق، الفول الحجازي</p>
+                </div>
+                <div class="region-feature">
+                    <div class="icon">🪑</div>
+                    <h4>تصميم السفرة</h4>
+                    <p>السفرة الحجازية بالأطباق الملونة</p>
+                </div>
+                <div class="region-feature">
+                    <div class="icon">🏠</div>
+                    <h4>اللمسة العمرانية</h4>
+                    <p>الرواشين والمشربيات الحجازية</p>
+                </div>
+                <div class="region-feature">
+                    <div class="icon">🎁</div>
+                    <h4>الهدية التذكارية</h4>
+                    <p>مباخر تراثية، سجاد يدوي</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="region-content" id="asir">
+            <h3>⛰️ تراث عسير</h3>
+            <div class="region-features">
+                <div class="region-feature">
+                    <div class="icon">🍚</div>
+                    <h4>الأكل التقليدي</h4>
+                    <p>العريكة، الحنيذ، المعصوب</p>
+                </div>
+                <div class="region-feature">
+                    <div class="icon">🪑</div>
+                    <h4>تصميم السفرة</h4>
+                    <p>السفرة العسيرية بألوان القط</p>
+                </div>
+                <div class="region-feature">
+                    <div class="icon">🏠</div>
+                    <h4>اللمسة العمرانية</h4>
+                    <p>فن القط العسيري الملون</p>
+                </div>
+                <div class="region-feature">
+                    <div class="icon">🎁</div>
+                    <h4>الهدية التذكارية</h4>
+                    <p>جنابي تقليدية، قطع فنية</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="region-content" id="eastern">
+            <h3>🌴 تراث الشرقية</h3>
+            <div class="region-features">
+                <div class="region-feature">
+                    <div class="icon">🍚</div>
+                    <h4>الأكل التقليدي</h4>
+                    <p>المجبوس، الهريس، المحمر</p>
+                </div>
+                <div class="region-feature">
+                    <div class="icon">🪑</div>
+                    <h4>تصميم السفرة</h4>
+                    <p>السفرة الخليجية بالتمور والقهوة</p>
+                </div>
+                <div class="region-feature">
+                    <div class="icon">🏠</div>
+                    <h4>اللمسة العمرانية</h4>
+                    <p>طراز الأحساء التاريخي</p>
+                </div>
+                <div class="region-feature">
+                    <div class="icon">🎁</div>
+                    <h4>الهدية التذكارية</h4>
+                    <p>فخاريات، منسوجات سدو</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="region-content" id="jazan">
+            <h3>🌊 تراث جازان</h3>
+            <div class="region-features">
+                <div class="region-feature">
+                    <div class="icon">🍚</div>
+                    <h4>الأكل التقليدي</h4>
+                    <p>المغش، العصيدة، السمك الجازاني</p>
+                </div>
+                <div class="region-feature">
+                    <div class="icon">🪑</div>
+                    <h4>تصميم السفرة</h4>
+                    <p>السفرة الجازانية بالخضرة</p>
+                </div>
+                <div class="region-feature">
+                    <div class="icon">🏠</div>
+                    <h4>اللمسة العمرانية</h4>
+                    <p>العمارة الجبلية التقليدية</p>
+                </div>
+                <div class="region-feature">
+                    <div class="icon">🎁</div>
+                    <h4>الهدية التذكارية</h4>
+                    <p>قبعات تقليدية، حرف يدوية</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="region-content" id="tabuk">
+            <h3>🏔️ تراث تبوك</h3>
+            <div class="region-features">
+                <div class="region-feature">
+                    <div class="icon">🍚</div>
+                    <h4>الأكل التقليدي</h4>
+                    <p>المنسف، الزرب، خبز التنور</p>
+                </div>
+                <div class="region-feature">
+                    <div class="icon">🪑</div>
+                    <h4>تصميم السفرة</h4>
+                    <p>السفرة البدوية التقليدية</p>
+                </div>
+                <div class="region-feature">
+                    <div class="icon">🏠</div>
+                    <h4>اللمسة العمرانية</h4>
+                    <p>طراز مدائن صالح النبطي</p>
+                </div>
+                <div class="region-feature">
+                    <div class="icon">🎁</div>
+                    <h4>الهدية التذكارية</h4>
+                    <p>بُسط صوفية، قطع نبطية</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Royal Gifts Section -->
+    <section class="royal-section">
+        <h2 class="section-title">👑 قسم الهدايا الملكية الخاصة</h2>
+        <p class="section-subtitle">قطع استثنائية للمناسبات الرسمية والضيوف الكبار</p>
+        
+        <div class="royal-features">
+            <div class="royal-feature">
+                <span class="icon">✨</span>
+                <span>قطع حصرية محدودة</span>
+            </div>
+            <div class="royal-feature">
+                <span class="icon">🎖️</span>
+                <span>تصاميم مخصصة</span>
+            </div>
+            <div class="royal-feature">
+                <span class="icon">📜</span>
+                <span>شهادات أصالة موثقة</span>
+            </div>
+            <div class="royal-feature">
+                <span class="icon">🎀</span>
+                <span>تغليف فاخر</span>
+            </div>
+        </div>
+
+        <div style="margin-top: 2rem;">
+            <a href="#" class="btn btn-secondary">استكشف الهدايا الملكية</a>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>جاهزون لخدمتكم</h2>
+        <p>تواصل معنا لتصميم هداياكم بما يليق بجهتكم الموقرة</p>
+        <a href="#" class="btn btn-primary">تواصل معنا</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>منصة هدايا</h4>
+                <p>من أرض السعودية... هدية تراها بأيدي أبنائها</p>
+                <div class="social-links">
+                    <a href="#">𝕏</a>
+                    <a href="#">📸</a>
+                    <a href="#">📘</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4>روابط سريعة</h4>
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="government.html">الجهات</a></li>
+                    <li><a href="individuals.html">الأفراد</a></li>
+                    <li><a href="idea.html">فكرة التطبيق</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>خدمة العملاء</h4>
+                <ul>
+                    <li><a href="#">تواصل معنا</a></li>
+                    <li><a href="#">الأسئلة الشائعة</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2026 منصة هدايا - جميع الحقوق محفوظة 🇸🇦</p>
+        </div>
+    </footer>
+
+    <script>
+        // Entity Theme Data
+        const entityThemes = {
+            agriculture: { icon: '🌿', name: 'وزارة البيئة والمياه والزراعة', desc: 'طابع طبيعي يعكس الاستدامة والخضرة والنماء' },
+            culture: { icon: '🎭', name: 'وزارة الثقافة', desc: 'طابع فني يحتفي بالتراث والفنون السعودية' },
+            tourism: { icon: '🗺️', name: 'وزارة السياحة', desc: 'طابع استكشافي يبرز جمال المملكة ومعالمها' },
+            education: { icon: '📚', name: 'وزارة التعليم', desc: 'طابع معرفي يرمز للعلم والتطور' },
+            health: { icon: '🏥', name: 'وزارة الصحة', desc: 'طابع صحي يعكس العناية والرعاية' },
+            commerce: { icon: '📈', name: 'وزارة التجارة', desc: 'طابع تجاري يرمز للازدهار الاقتصادي' },
+            heritage: { icon: '🏛️', name: 'هيئة التراث', desc: 'طابع تراثي عريق يحتفي بالهوية السعودية' },
+            entertainment: { icon: '🎪', name: 'هيئة الترفيه', desc: 'طابع احتفالي مفعم بالبهجة والفرح' },
+            sports: { icon: '⚽', name: 'هيئة الرياضة', desc: 'طابع رياضي ديناميكي يعكس الحيوية' },
+            aramco: { icon: '🛢️', name: 'أرامكو السعودية', desc: 'طابع صناعي يرمز للطاقة والابتكار' },
+            sabic: { icon: '🏭', name: 'سابك', desc: 'طابع صناعي يعكس التقدم والتطور' },
+            stc: { icon: '📱', name: 'الاتصالات السعودية', desc: 'طابع تقني يرمز للتواصل والاتصال' },
+            bank: { icon: '🏦', name: 'البنوك والمصارف', desc: 'طابع مالي يعكس الثقة والاستقرار' }
+        };
+
+        function showEntityTheme() {
+            const select = document.getElementById('entitySelect');
+            const preview = document.getElementById('entityPreview');
+            const value = select.value;
+
+            if (value && entityThemes[value]) {
+                const theme = entityThemes[value];
+                document.getElementById('entityIcon').textContent = theme.icon;
+                document.getElementById('entityName').textContent = theme.name;
+                document.getElementById('entityDesc').textContent = theme.desc;
+                preview.classList.add('active');
+            } else {
+                preview.classList.remove('active');
+            }
+        }
+
+        function showRegion(regionId) {
+            // Remove active class from all buttons and contents
+            document.querySelectorAll('.region-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.region-content').forEach(content => content.classList.remove('active'));
+
+            // Add active class to selected
+            document.querySelector(`[data-region="${regionId}"]`).classList.add('active');
+            document.getElementById(regionId).classList.add('active');
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
